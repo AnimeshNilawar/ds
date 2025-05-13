@@ -112,3 +112,17 @@ int main()
 
     return 0;
 }
+
+/*
+    Push Operation = TC - Best: O(1), Average: O(1), Worst: O(1)
+                     SC - O(1)
+
+    Pop Operation = TC - Best: O(1), Average: O(1), Worst: O(1)
+                    SC - O(1)
+
+    isEmpty Operation = TC - Best: O(1), Average: O(1), Worst: O(1)
+                        SC - O(1)
+
+    printStack Operation = TC - Best: O(n), Average: O(n), Worst: O(n)
+                           SC - O(1)
+*/

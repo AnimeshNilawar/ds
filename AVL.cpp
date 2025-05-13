@@ -237,3 +237,38 @@ int main() {
 
     return 0;
 }
+
+/*
+    AVL Tree Operations:
+
+    Insert Operation = TC - Best: O(log n), Average: O(log n), Worst: O(log n)
+                       SC - O(log n) (due to recursion stack)
+
+    Delete Operation = TC - Best: O(log n), Average: O(log n), Worst: O(log n)
+                       SC - O(log n) (due to recursion stack)
+
+    Traversals (Inorder, Preorder, Postorder) = TC - Best: O(n), Average: O(n), Worst: O(n)
+                                                SC - O(h) (where h is the height of the tree)
+*/
+
+/*
+    Example 1:
+    Input:
+    Enter value to insert: 50
+    Enter value to insert: 30
+    Enter value to insert: 70
+    Enter value to insert: 20
+    Enter value to insert: 40
+    Enter value to insert: 60
+    Enter value to insert: 80
+    Inorder Traversal: 20 30 40 50 60 70 80
+
+    Example 2:
+    Input:
+    Enter value to delete: 50
+    Inorder Traversal: 20 30 40 60 70 80
+
+    Example 3:
+    Input:
+    Preorder Traversal: 60 30 20 40 70 80
+*/

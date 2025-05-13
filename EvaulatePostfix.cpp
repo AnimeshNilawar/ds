@@ -75,3 +75,8 @@ int main() {
     cout << "Result: " << evaluatePostfix(expr) << endl;
     return 0;
 }
+
+
+/*
+    INPUT = 53+62/*35*+
+*/

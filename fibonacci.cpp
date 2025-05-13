@@ -62,3 +62,17 @@ int main() {
 
     return 0;
 }
+
+/*
+    Fibonacci Recursive = TC - Best: O(2^n), Average: O(2^n), Worst: O(2^n)
+                          SC - O(n) (due to recursion stack)
+
+    Fibonacci Iterative = TC - Best: O(n), Average: O(n), Worst: O(n)
+                          SC - O(1)
+
+    Print Fibonacci Recursive = TC - Best: O(n * 2^n), Average: O(n * 2^n), Worst: O(n * 2^n)
+                                SC - O(n) (due to recursion stack)
+
+    Print Fibonacci Iterative = TC - Best: O(n), Average: O(n), Worst: O(n)
+                                SC - O(1)
+*/

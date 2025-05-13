@@ -6,7 +6,7 @@ class Node
 public:
     int data;
     Node *next;
-     
+
     Node(int data)
     {
         this->data = data;
@@ -165,3 +165,66 @@ int main()
 
     return 0;
 }
+
+/*
+    Singly Linked List Operations:
+
+    Insert at Head = TC - Best: O(1), Average: O(1), Worst: O(1)
+                     SC - O(1)
+
+    Insert at Tail = TC - Best: O(1) (empty list), Average: O(n), Worst: O(n)
+                     SC - O(1)
+
+    Insert at Position = TC - Best: O(1) (position = 0), Average: O(n), Worst: O(n)
+                         SC - O(1)
+
+    Delete at Position = TC - Best: O(1) (position = 0), Average: O(n), Worst: O(n)
+                         SC - O(1)
+
+    Display List = TC - Best: O(n), Average: O(n), Worst: O(n)
+                   SC - O(1)
+
+    Delete Entire List = TC - Best: O(n), Average: O(n), Worst: O(n)
+                         SC - O(1)
+*/
+
+/*
+    Example 1:
+    Input:
+    Enter option:
+    1. Insert at Head
+    2. Insert at Tail
+    3. Insert at Position
+    4. Delete at Position
+    5. Display List
+    6. Exit
+    1
+    Enter value to insert at head: 10
+    2
+    Enter value to insert at tail: 20
+    3
+    Enter value to insert: 15
+    Enter position to insert: 1
+    5
+
+    Output:
+    10 -> 15 -> 20 -> NULL
+
+    Example 2:
+    Input:
+    Enter option:
+    4
+    Enter position to delete: 1
+    5
+
+    Output:
+    10 -> 20 -> NULL
+
+    Example 3:
+    Input:
+    Enter option:
+    6
+
+    Output:
+    Exiting...
+*/

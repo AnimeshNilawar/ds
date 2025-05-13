@@ -18,7 +18,6 @@ public:
 
 void insert(Node *&head, int data)
 {
-
     Node *newNode = new Node(data);
 
     if (head == nullptr)
@@ -39,7 +38,6 @@ void insert(Node *&head, int data)
 
 void deleteAtBeginning(Node *&head)
 {
-
     if (head == nullptr)
     {
         cout << "The list is already empty." << endl;
@@ -57,7 +55,6 @@ void deleteAtBeginning(Node *&head)
 
 void deleteAtPosition(Node *&head, int position)
 {
-
     if (head == nullptr)
     {
         cout << "The list is already empty." << endl;
@@ -78,9 +75,7 @@ void deleteAtPosition(Node *&head, int position)
 
     if (temp == nullptr)
     {
-        cout << "Position is greater than the number of "
-                "nodes."
-             << endl;
+        cout << "Position is greater than the number of nodes." << endl;
         return;
     }
 
@@ -172,3 +167,60 @@ int main()
 
     return 0;
 }
+
+/*
+    Doubly Linked List Operations:
+
+    Insert Operation = TC - Best: O(1) (inserting at the beginning),
+                             Average: O(n), Worst: O(n) (inserting at the end)
+                      SC - O(1)
+
+    Delete Operation = TC - Best: O(1) (deleting the first node),
+                             Average: O(n), Worst: O(n) (deleting at a specific position)
+                      SC - O(1)
+
+    Print Operation = TC - Best: O(n), Average: O(n), Worst: O(n)
+                      SC - O(1)
+
+    Find Even Nodes = TC - Best: O(n), Average: O(n), Worst: O(n)
+                      SC - O(1)
+*/
+
+/*
+    Example 1:
+    Input:
+    Enter option:
+    1) Insert Node
+    2) Delete Node at Position
+    3) Print List
+    4) Find Even Nodes
+    5) Exit
+    1
+    Enter value to insert: 10
+    1
+    Enter value to insert: 20
+    1
+    Enter value to insert: 15
+    3
+
+    Output:
+    Forward List: 10 20 15
+
+    Example 2:
+    Input:
+    Enter option:
+    4
+
+    Output:
+    Nodes with even numbers: 10 20
+
+    Example 3:
+    Input:
+    Enter option:
+    2
+    Enter position to delete: 2
+    3
+
+    Output:
+    Forward List: 10 15
+*/

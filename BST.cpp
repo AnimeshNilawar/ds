@@ -273,3 +273,48 @@ int main()
 
     return 0;
 }
+
+/*
+    Binary Search Tree (BST) Operations:
+
+    Insert Operation = TC - Best: O(log n), Average: O(log n), Worst: O(n)
+                       SC - O(log n) (due to recursion stack)
+
+    Delete Operation = TC - Best: O(log n), Average: O(log n), Worst: O(n)
+                       SC - O(log n) (due to recursion stack)
+
+    Traversals (Recursive) = TC - Best: O(n), Average: O(n), Worst: O(n)
+                             SC - O(h) (where h is the height of the tree)
+
+    Traversals (Non-Recursive) = TC - Best: O(n), Average: O(n), Worst: O(n)
+                                 SC - O(h) (due to stack usage)
+
+    Mirror Tree = TC - Best: O(n), Average: O(n), Worst: O(n)
+                  SC - O(h) (due to recursion stack)
+
+    Count Nodes = TC - Best: O(n), Average: O(n), Worst: O(n)
+                  SC - O(h) (due to recursion stack)
+*/
+
+/*
+    Example 1:
+    Input:
+    Enter value to insert: 50
+    Enter value to insert: 30
+    Enter value to insert: 70
+    Enter value to insert: 20
+    Enter value to insert: 40
+    Enter value to insert: 60
+    Enter value to insert: 80
+    Recursive Inorder Traversal: 20 30 40 50 60 70 80
+
+    Example 2:
+    Input:
+    Enter value to delete: 50
+    Recursive Inorder Traversal: 20 30 40 60 70 80
+
+    Example 3:
+    Input:
+    Mirror Tree
+    Recursive Inorder Traversal: 80 70 60 40 30 20
+*/

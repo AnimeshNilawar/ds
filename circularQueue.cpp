@@ -93,3 +93,56 @@ int main() {
 
     return 0;
 }
+
+/*
+    Circular Queue Operations:
+
+    Enqueue Operation = TC - Best: O(1), Average: O(1), Worst: O(1)
+                        SC - O(1)
+
+    Dequeue Operation = TC - Best: O(1), Average: O(1), Worst: O(1)
+                        SC - O(1)
+
+    Peek Operation = TC - Best: O(1), Average: O(1), Worst: O(1)
+                     SC - O(1)
+
+    Print Operation = TC - Best: O(n), Average: O(n), Worst: O(n)
+                      SC - O(1)
+
+    Space Complexity of Queue = O(MAX_SIZE)
+*/
+
+/*
+    Example 1:
+    Input:
+    Enter option:
+    1) Enqueue
+    2) Dequeue
+    3) Peek
+    4) Print Queue
+    5) Exit
+    1
+    Enter value to enqueue: 10
+    1
+    Enter value to enqueue: 20
+    1
+    Enter value to enqueue: 30
+    4
+
+    Output:
+    Queue contents: 10 20 30
+
+    Example 2:
+    Input:
+    Enter option:
+    1) Enqueue
+    2) Dequeue
+    3) Peek
+    4) Print Queue
+    5) Exit
+    2
+    3
+
+    Output:
+    Front value: 20
+*/

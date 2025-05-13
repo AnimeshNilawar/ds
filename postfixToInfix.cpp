@@ -1,83 +1,126 @@
 #include <iostream>
 #include <string>
+
 using namespace std;
 
+// Custom stack class
 class Stack {
-    int top;
-    int size;
+private:
     string* arr;
+    int top;
+    int capacity;
 
 public:
-    Stack(int size) {
-        this->size = size;
+    Stack(int size = 100) {
         arr = new string[size];
-        this->top = -1;
+        capacity = size;
+        top = -1;
     }
 
     ~Stack() {
         delete[] arr;
     }
 
-    void push(string value) {
-        if (top == size - 1) {
-            cout << "Stack Overflow\n";
+    void push(string val) {
+        if (top >= capacity - 1) {
+            cout << "Stack overflow!\n";
             return;
         }
-        arr[++top] = value;
+        arr[++top] = val;
     }
 
     string pop() {
-        if (top == -1) {
-            cout << "Stack Underflow\n";
-            throw runtime_error("Stack Underflow");
+        if (isEmpty()) {
+            cout << "Stack underflow!\n";
+            return "";
         }
         return arr[top--];
+    }
+
+    string peek() {
+        if (isEmpty()) {
+            return "";
+        }
+        return arr[top];
     }
 
     bool isEmpty() {
         return top == -1;
     }
 
-    string peek() {
-        if (top == -1) {
-            throw runtime_error("Stack is Empty");
-        }
-        return arr[top];
+    int size() {
+        return top + 1;
     }
 };
 
-string postfixToInfix(string postfix) {
-    int n = postfix.length();
-    Stack st(n);
+// Utility function to check if a character is an operator
+bool isOperator(char ch) {
+    return ch == '+' || ch == '-' || ch == '*' || ch == '/' || ch == '^';
+}
 
-    for (int i = 0; i < n; i++) {
-        char c = postfix[i];
+// Postfix to Infix Conversion
+string postfixToInfix(const string& postfix) {
+    Stack s;
 
-        if ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z') || (c >= '0' && c <= '9')) {
-            string operand(1, c);
-            st.push(operand);
+    for (char ch : postfix) {
+        if (isspace(ch)) continue;
+
+        if (isalnum(ch)) {
+            s.push(string(1, ch));
+        } else if (isOperator(ch)) {
+            if (s.size() < 2) {
+                return "Error: Invalid postfix expression!";
+            }
+            string op2 = s.pop();
+            string op1 = s.pop();
+            string expr = "(" + op1 + ch + op2 + ")";
+            s.push(expr);
         } else {
-            string operand2 = st.pop();
-            string operand1 = st.pop();
-            string expr = "(" + operand1 + c + operand2 + ")";
-            st.push(expr);
+            return "Error: Invalid character in expression!";
         }
     }
 
-    return st.pop();
+    if (s.size() != 1) {
+        return "Error: Invalid postfix expression!";
+    }
+
+    return s.pop();
 }
 
+// Menu-driven main function
 int main() {
+    int choice;
     string postfix;
-    cout << "Enter Postfix Expression: ";
-    cin >> postfix;
 
-    try {
-        string infix = postfixToInfix(postfix);
-        cout << "Infix Expression: " << infix << endl;
-    } catch (exception& e) {
-        cout << e.what() << endl;
-    }
+    do {
+        cout << "\n==== Postfix to Infix Converter ====\n";
+        cout << "1. Convert Postfix to Infix\n";
+        cout << "2. Exit\n";
+        cout << "Enter your choice: ";
+        cin >> choice;
+        cin.ignore(); // Ignore leftover newline
+
+        switch (choice) {
+            case 1:
+                cout << "Enter postfix expression (single-character operands): ";
+                getline(cin, postfix);
+                cout << "Infix expression: " << postfixToInfix(postfix) << endl;
+                break;
+            case 2:
+                cout << "Exiting...\n";
+                break;
+            default:
+                cout << "Invalid choice! Try again.\n";
+        }
+    } while (choice != 2);
 
     return 0;
 }
+
+/*
+    Postfix to Infix Conversion = TC - Best: O(n), Average: O(n), Worst: O(n)
+                                  SC - O(n) (due to stack usage)
+
+    INPUT = abc+*d/
+            ab+c*
+*/
